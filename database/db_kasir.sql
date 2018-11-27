@@ -33,6 +33,21 @@ CREATE TABLE `bank` (
 
 insert  into `bank`(`id_bank`,`nama_bank`,`no_rekening`,`atas_nama`,`status`) values (1,'Mandiri','123456789','Ida Bagus Gede Anandita','Active'),(2,'BCA','987654321','Ida Ayu Udiyani','Active'),(3,'BRI','569874321','Ida Ayu Udiyani','Active'),(4,'BPD','369258147','Ida Bagus Gede Anandita','Tidak Active');
 
+/*Table structure for table `cabang` */
+
+DROP TABLE IF EXISTS `cabang`;
+
+CREATE TABLE `cabang` (
+  `id_cabang` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_cabang` varchar(50) DEFAULT NULL,
+  `statusdel` set('Y','N') DEFAULT NULL,
+  PRIMARY KEY (`id_cabang`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `cabang` */
+
+insert  into `cabang`(`id_cabang`,`nama_cabang`,`statusdel`) values (1,'Singapadu','N'),(2,'Klungkung','N'),(3,'Denpasar','N');
+
 /*Table structure for table `customer` */
 
 DROP TABLE IF EXISTS `customer`;
@@ -117,7 +132,7 @@ CREATE TABLE `produk` (
 
 /*Data for the table `produk` */
 
-insert  into `produk`(`id_produk`,`nama_produk`,`harga_beli`,`harga_jual`,`stok`,`picture`,`keterangan`,`id_kategori`,`id_user`,`statusdel`,`datecreated`,`dateupdated`) values ('DA-1','Testing Produk 1',110000,220000,10,'brossads2.png','ini testing add produk ','1','1','N','2018-02-04','2018-02-04'),('DA-2','Testing Produk 2',180000,250000,9,'bros2.PNG','testing add produk kedua','2','1','N','2018-02-04',NULL),('DA-3','Testing produk 3',140000,170000,8,'Capture.PNG','testing id user','3','1','N','2018-02-04',NULL);
+insert  into `produk`(`id_produk`,`nama_produk`,`harga_beli`,`harga_jual`,`stok`,`picture`,`keterangan`,`id_kategori`,`id_user`,`statusdel`,`datecreated`,`dateupdated`) values ('DA-1','Testing Produk 1',110000,220000,10,'brossads2.png','ini testing add produk ','1','1','N','2018-02-04','2018-02-04'),('DA-2','Testing Produk 2',180000,250000,9,'bros2.PNG','testing add produk kedua','2','1','N','2018-02-04','2018-02-04'),('DA-3','Testing produk 3',140000,170000,8,'Capture.PNG','testing id user','3','1','N','2018-02-04','2018-02-04'),('DA-4','Testing Produk 4 Edit',100000,200000,27,'8111f339fe508b529357ae843f370215.jpg','Testing input produk edit','4','1','N','2018-11-26','2018-11-26');
 
 /*Table structure for table `produk_kategori` */
 
@@ -136,6 +151,20 @@ CREATE TABLE `produk_kategori` (
 
 insert  into `produk_kategori`(`id_kategori`,`kategori`,`id_user`,`statusdel`,`datecreated`) values (1,'Bros','1','N','2018-02-04'),(2,'Subeng','1','N','2018-02-04'),(3,'Paket Bros','1','N','2018-02-04'),(4,'Cincin','1','N','2018-02-04');
 
+/*Table structure for table `stok_cabang` */
+
+DROP TABLE IF EXISTS `stok_cabang`;
+
+CREATE TABLE `stok_cabang` (
+  `id_cabang` varchar(50) DEFAULT NULL,
+  `id_produk` varchar(50) DEFAULT NULL,
+  `stok` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `stok_cabang` */
+
+insert  into `stok_cabang`(`id_cabang`,`id_produk`,`stok`) values ('1','DA-1',5),('2','DA-1',3),('3','DA-1',2),('1','DA-2',3),('2','DA-2',2),('3','DA-2',4),('1','DA-3',2),('2','DA-3',5),('3','DA-3',1),('1','DA-4',8),('2','DA-4',9),('3','DA-4',10);
+
 /*Table structure for table `user` */
 
 DROP TABLE IF EXISTS `user`;
@@ -146,17 +175,17 @@ CREATE TABLE `user` (
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `nohp` int(11) DEFAULT NULL,
+  `nohp` varchar(15) DEFAULT NULL,
   `picture` text,
-  `otoritas` set('Admin','Manager','Pegawai') DEFAULT NULL,
+  `otoritas` set('Admin','Manager','Owner','Pegawai') DEFAULT NULL,
   `status_del` set('Y','N') DEFAULT NULL,
   `datecreated` date DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id_user`,`nama`,`username`,`password`,`email`,`nohp`,`picture`,`otoritas`,`status_del`,`datecreated`) values (1,'Administrator','admin','admin','ida.bagus.anandita@gmail.com',2147483647,NULL,'Admin','N','2018-02-03'),(2,'Ida Bagus Gede Anandita','gusdita','anandita','ida.bagus.anandita@gmail.com',2147483647,NULL,'Manager','N','2018-02-03');
+insert  into `user`(`id_user`,`nama`,`username`,`password`,`email`,`nohp`,`picture`,`otoritas`,`status_del`,`datecreated`) values (1,'Administrator','admin','admin','ida.bagus.anandita@gmail.com','2147483647',NULL,'Admin','N','2018-02-03'),(2,'Ida Bagus Gede Anandita','gusdita','anandita','ida.bagus.anandita@gmail.com','2147483647','photo_2016-12-29_19-23-52.jpg','Manager','N','2018-02-03'),(3,'Ida Ayu Putu Udiyani','udiyani','udiyani','ida.ayu.udiyani@gmail.com','2147483647','USI_4403-1.jpg','Owner','N','2018-11-15'),(4,'Testing Pegawai','pegawai edit','pegawai','pegawai@gmail.com','81805400','gerard-butler-460f146f26b6fbc1f3e3fa42030d25ea.jpg','Pegawai','N','2018-11-15');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

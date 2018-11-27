@@ -9,7 +9,11 @@
 	elseif($view == "transaction") 						include("transaction.php");
 	elseif($view == "transaction-action") 				include("transaction-action.php");
 
-	elseif($view == "user-data") 				include("user-data.php");
+	elseif($view == "user-data") 						include("user-data.php");
+	elseif($view == "user-action") 						include("user-action.php");
+	
+	elseif($view == "produk-data") 						include("produk-data.php");
+	elseif($view == "produk-action") 					include("produk-action.php");
 
 
 	else echo"No Content";
