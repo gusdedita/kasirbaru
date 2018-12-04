@@ -34,7 +34,7 @@
 									Transaksi Penjualan
 
 									<button type="submit" name="btn_jadwaldok" id="btn_jadwaldok"  class="btn btn-primary pull-right" style="zoom:85%">New Transaksi</button>
-									<button type="submit" name="btn_tambahpas" id="btn_tambahpas"  class="btn btn-info pull-right" style="zoom:85%">History Transaksi</button>
+									<button href="?view=transaction-data"  class="btn btn-info pull-right" style="zoom:85%">History Transaksi</button>
 								</h4>
 								<p class="category">Home > Billing > Transaksi Penjualan</p>
 							</div>
@@ -43,6 +43,7 @@
 
 						<div class="card-content">
 							   <input type="hidden" name="txt_userlogin" id="txt_userlogin" value="<?PHP echo $iduserlogin;?>" >
+							   <input type="hidden" name="txt_idcabang" id="txt_idcabang" value="<?PHP echo $idcabang;?>" >
 
 								<div class="row">
 									<!--<form method="post" action="">-->
@@ -266,13 +267,13 @@
 
 								<table class="table table-bordered" name="tbl_detailbelanja" id="tbl_detailbelanja">
 									<thead class="text-primary">
-										<th>No</th>
+										<th align="center">No</th>
 										<th></th>
-										<th>Product</th>
-										<th>Price (Rp.)</th>
-										<th>Quantity </th>
-										<th>Sub-Total</th>
-										<th>Action</th>
+										<th align="center">Product</th>
+										<th align="center">Price (Rp.)</th>
+										<th align="center">Quantity </th>
+										<th align="center">Sub-Total</th>
+										<th align="center">Action</th>
 									</thead>
 
 									<tbody>
@@ -377,7 +378,7 @@
 <!--Modal Cari Produk===================================================================================================================================-->
 <div class="modal fade" id="myModalCariProduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document" style="width:80%">
-		<div class="modal-content">
+		<div class="modal-content" style="zoom:110%">
 
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -388,12 +389,11 @@
 			<div class="modal-body">
 				<table class="table table-bordered" name="tbl_productinput" id="tbl_productinput">
                     <thead class="text-primary">
-						<th>No.</th>
-						<th>Picture</th>
-						<th>Code Product</th>
-						<th>Product</th>
-						<th><?PHP echo "Stok ".$data_selcabang['nama_cabang'];?></th>
-						<th>Action</th>
+						<th align="center" width="5%">No.</th>
+						<th align="center" width="12%">Code Product</th>
+						<th align="center" colspan="2">Product</th>
+						<th align="center"><?PHP echo "Stok ".$data_selcabang['nama_cabang'];?></th>
+						<th align="center">Action</th>
 					</thead>
 
 					<?PHP
@@ -404,16 +404,16 @@
 											p.nama_produk,
 											sc.stok,
 											p.harga_jual
-										FROM produk AS p JOIN stok_cabang AS sc ON p.id_produk=sc.id_produk WHERE p.statusdel='N' AND sc.id_cabang='$idcabang'";
+										FROM produk AS p JOIN stok_cabang AS sc ON p.id_produk=sc.id_produk WHERE p.statusdel='N' AND sc.id_cabang='$idcabang' ORDER BY p.id_produk DESC";
 						$sql_selproduct = mysqli_query($conn, $qu_selproduct);
 						while($data_selproduct = mysqli_fetch_array($sql_selproduct)){
 					?>
 							<tr>
-								<td><?PHP echo $no_selproduct;?></td>
-								<td><img src="assets/img/product/<?PHP echo $data_selproduct['picture'];?>" width="70px" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid"></td>
+								<td align="center"><?PHP echo $no_selproduct;?></td>
 								<td><?PHP echo $data_selproduct['id_produk'];?></td>
+								<td align="center"><img src="assets/img/product/<?PHP echo $data_selproduct['picture'];?>" width="70px" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid"></td>
 								<td><?PHP echo $data_selproduct['nama_produk'];?></td>
-								<td><?PHP echo $data_selproduct['stok'];?></td>
+								<td align="center"><?PHP echo $data_selproduct['stok'];?></td>
 								<td><button name="btn_inpro<?PHP echo $no_selproduct;?>" id="btn_inpro<?PHP echo $no_selproduct;?>" class="btn btn-warning" style="zoom:70%" data-dismiss="modal" aria-label="Close">Input</button></td>
 							</tr>
 

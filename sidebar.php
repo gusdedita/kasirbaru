@@ -25,10 +25,9 @@
                         </a>
                     </li>
 					
-					<li <?PHP if ($getview=="supervisi-data"){echo "class='active'";}?>>
-                        <a href="?view=home-pendaftaran">
-                            <i class="material-icons">content_paste</i>
-                            <p>Billing</p>
+					<li <?PHP if ($getview=="transaction" || $getview="transaction-data"){echo "class='active'";}?>>
+                        <a href="?view=transaction">
+                            <p> <i class="fas fa-dollar-sign"></i> Billing</p>
                         </a>
                     </li>
 					

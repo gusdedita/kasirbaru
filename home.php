@@ -8,6 +8,7 @@
 						<i class="material-icons">content_paste</i>
                     </div>
                     <div class="card-content">
+						<a href="?view=transaction-data" class="btn btn-info">Data Penjualan</a>
 						<a href="?view=transaction" class="btn btn-info">Billing</a>
                     </div>
                     <div class="card-footer">
@@ -24,8 +25,8 @@
                         <i class="material-icons">warning</i>
                     </div>
                     <div class="card-content">
-						<a href="?view=" class="btn btn-danger">Product</a>
-						<a href="?view=" class="btn btn-danger">Add Product</a>
+						<a href="?view=produk-data" class="btn btn-danger">Product</a>
+						<a href="?view=produk-data" class="btn btn-danger">Add Product</a>
                     </div>
                     <div class="card-footer">
                         <div class="stats">

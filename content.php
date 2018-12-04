@@ -7,6 +7,7 @@
 
 	elseif($view == "") 								include("home.php");
 	elseif($view == "transaction") 						include("transaction.php");
+	elseif($view == "transaction-data") 				include("transaction-data.php");
 	elseif($view == "transaction-action") 				include("transaction-action.php");
 
 	elseif($view == "user-data") 						include("user-data.php");
