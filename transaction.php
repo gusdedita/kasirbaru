@@ -33,8 +33,8 @@
 								<h4 class="title">
 									Transaksi Penjualan
 
-									<button type="submit" name="btn_jadwaldok" id="btn_jadwaldok"  class="btn btn-primary pull-right" style="zoom:85%">New Transaksi</button>
-									<button href="?view=transaction-data"  class="btn btn-info pull-right" style="zoom:85%">History Transaksi</button>
+									<a href="?view=transaction" class="btn btn-primary pull-right" style="zoom:85%">New Transaksi</a>
+									<a href="?view=transaction-data"  class="btn btn-info pull-right" style="zoom:85%">History Transaksi</a>
 								</h4>
 								<p class="category">Home > Billing > Transaksi Penjualan</p>
 							</div>
@@ -62,10 +62,17 @@
 										</div>
 									</div>
 
-									<div class="col-md-12">
+									<div class="col-md-10">
 										<div class="form-group label-floating">
 											<label class="control-label">Nama Customer</label>
 											<input type="text" class="form-control" id="txt_namacust" name="txt_namacust">
+										</div>
+									</div>
+
+									<div class="col-md-2">
+										<div class="form-group label-floating">
+											<label class="control-label"></label>
+											<a data-toggle="modal" data-target="#myModalAddCustomer" class="btn btn-primary btn-round" style="zoom:80%">New Member</a>
 										</div>
 									</div>
 
@@ -201,7 +208,7 @@
 						<div class="col-md-7">
 							<div class="form-group label-floating">
 								<label class="control-label">Kembali</label>
-								<input type="text" class="form-control" id="txt_kembalian" name="txt_kembalian" value="0000">
+								<input type="text" class="form-control" id="txt_kembalian" name="txt_kembalian" value="000">
 							</div>
 						</div>
 
@@ -440,6 +447,68 @@
 			<div class='modal-footer'>
 				<button name="btn_cancel" id="btn_cancel" class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">Cancel</button>
 			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+<!--Modal Tambah Customer===================================================================================================================================-->
+<div class="modal fade" id="myModalAddCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document" style="width:80%">
+		<div class="modal-content" style="zoom:110%">
+
+			<form method="post" action="?view=customer-action" enctype="multipart/form-data">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Add Customer/Member</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<div class="col-md-12">
+						<div class="form-group label-floating">
+							<label class="control-label">Nama Customer</label>
+							<input type="text" class="form-control" id="txt_namacust" name="txt_namacust" >
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group label-floating">
+							<label class="control-label">No. Handphone</label>
+							<input type="text" class="form-control" id="txt_nohp" name="txt_nohp" >
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group label-floating">
+							<label class="control-label">E-Mail</label>
+							<input type="text" class="form-control" id="txt_email" name="txt_email" >
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group label-floating">
+							<label class="control-label">Alamat</label>
+							<textarea type="text" class="form-control" id="txt_alamat" name="txt_alamat" rows="3"></textarea>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group label-floating">
+							<label class="control-label">Keterangan</label>
+							<textarea type="text" class="form-control" id="txt_keterangan" name="txt_keterangan" rows="3"></textarea>
+						</div>
+					</div>
+
+				</div>
+
+				<div class='modal-footer'>
+					<button name="btn_savecusttrans" id="btn_savecusttrans" class="btn btn-info" style="zoom:85%" >Save</button>
+					<button class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">Cancel</button>
+				</div>
+			</form>
 
 		</div>
 	</div>
