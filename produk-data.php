@@ -8,6 +8,8 @@
 
 	$iduserlogin = $data_seluser['id_user'];
 
+	$get_msg = $_POST['txt_msg'];
+
 ?>
 <div class="content" style="zoom:110%">
     <div class="container-fluid">
@@ -71,7 +73,7 @@
  												</td>
  												<td><?PHP echo $data_selpro['nama_produk'];?></td>
  												<td><?PHP echo $data_selpro['harga_jual'];?></td>
-												<?PHP 
+												<?PHP
 													$totstokcab = 0;
 													$idpro_selpro   = $data_selpro['id_produk'];
 													$qu_selstokcab  = "SELECT * FROM stok_cabang WHERE id_produk='$idpro_selpro' ORDER BY id_cabang";
@@ -95,7 +97,7 @@
 											<div class="modal fade" id="myModalEditProduk<?PHP echo $no_selpro;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document" style="width:60%">
 													<div class="modal-content">
-														
+
 														<form method="post" action="?view=produk-action" enctype="multipart/form-data">
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -104,39 +106,39 @@
 
 
 															<div class="modal-body">
-																
+
 																<input type="hidden" id="txt_iduser" name="txt_iduser" value="<?PHP echo $data_seluser['id_user'];?>">
-																
+
 																<div class="modal-body">
-																
+
 																	<div class="col-md-6">
 																		<div class="form-group label-floating">
 																			<label class="control-label">ID Product</label>
 																			<input type="text" class="form-control" id="txt_idpro" name="txt_idpro" value="<?PHP echo $data_selpro['id_produk'];?>" >
 																		</div>
 																	</div>
-																	
+
 																	<div class="col-md-6">
 																		<div class="form-group label-floating">
 																			<label class="control-label">Nama Product</label>
 																			<input type="text" class="form-control" id="txt_namapro" name="txt_namapro" value="<?PHP echo $data_selpro['nama_produk'];?>">
 																		</div>
 																	</div>
-																	
+
 																	<div class="col-md-6">
 																		<div class="form-group label-floating">
 																			<label class="control-label">Harga Beli (Rp.)</label>
 																			<input type="number" class="form-control" id="txt_hargabeli" name="txt_hargabeli" value="<?PHP echo $data_selpro['harga_beli'];?>">
 																		</div>
 																	</div>
-																	
+
 																	<div class="col-md-6">
 																		<div class="form-group label-floating">
 																			<label class="control-label">Harga Jual (Rp.)</label>
 																			<input type="number" class="form-control" id="txt_hargajual" name="txt_hargajual" value="<?PHP echo $data_selpro['harga_jual'];?>">
 																		</div>
 																	</div>
-																	
+
 																	<?PHP
 																		$qu_selcabang_edit = "SELECT * FROM cabang AS c JOIN stok_cabang AS sc ON c.id_cabang=sc.id_cabang WHERE c.statusdel='N' AND sc.id_produk='$idpro_selpro'";
 																		$sql_selcabang_edit=mysqli_query($conn, $qu_selcabang_edit);
@@ -151,12 +153,12 @@
 																	<?PHP
 																		}
 																	?>
-																	
+
 																	<div class="col-md-6">
 																		<div class="form-group label-floating">
 																			<label class="control-label">Kategori</label>
 																			<select class="form-control js-example-responsive" id="cb_kategori" name="cb_kategori">
-																				<?PHP 
+																				<?PHP
 																					$qu_selkate = "SELECT * FROM produk_kategori WHERE statusdel='N'";
 																					$sql_selkate= mysqli_query($conn, $qu_selkate);
 																					while($data_selkate=mysqli_fetch_array($sql_selkate)){
@@ -168,37 +170,81 @@
 																			</select>
 																		</div>
 																	</div>
-																	
+
 																	<div class="col-md-6">
 																		<div class="form-group label-floating">
 																			<label class="control-label">Picture</label>
 																		</div>
 																		<input type="file"  id="inp_picture" name="inp_picture" >
 																	</div>
-																	
+
 																	<div class="col-md-12">
 																		<div class="form-group label-floating">
 																			<label class="control-label">Keterangan</label>
 																			<input type="text" class="form-control" id="txt_keterangan" name="txt_keterangan" value="<?PHP echo $data_selpro['keterangan'];?>">
 																		</div>
 																	</div>
-																	
-																	
-																
+
+
+
 																</div>
-															
+
 															</div>
 
 															<div class="modal-footer" style="padding:30px;">
-																
+
 																<div class="col-md-12">
 																	<button name="btn_update" id="btn_update" class="btn btn-success" style="zoom:85%" >Update</button>
 																	<button class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">Cancel</button>
 																</div>
-																
+
 															</div>
 														</form>
-														
+
+													</div>
+												</div>
+											</div>
+
+
+											<!--Modal Hapus Product===================================================================================================================================-->
+											<div class="modal fade" id="myModalHapusProduk<?PHP echo $no_selpro;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+												<div class="modal-dialog" role="document" style="width:60%">
+													<div class="modal-content">
+
+														<form method="post" action="?view=produk-action" enctype="multipart/form-data">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+																<h4 class="modal-title" id="myModalLabel">Hapus Product</h4>
+															</div>
+
+
+															<div class="modal-body">
+
+																<input type="hidden" id="txt_iduser" name="txt_iduser" value="<?PHP echo $data_seluser['id_user'];?>">
+																<input type="hidden" id="txt_idpro" name="txt_idpro" value="<?PHP echo $data_selpro['id_produk'];?>">
+
+																<div class="modal-body">
+
+																	<p align="center">
+																		<img src="assets/img/product/<?PHP echo $data_selpro['picture'];?>" style="width:120px">
+																		<br>Yakin akan mengapus produk ini?
+																		<br>Product : <?PHP echo $data_selpro['nama_produk'];?>
+																	</p>
+
+																</div>
+
+															</div>
+
+															<div class="modal-footer" style="padding:30px;">
+
+																<div class="col-md-12">
+																	<button name="btn_delpro" id="btn_delpro" class="btn btn-success" style="zoom:85%" >Yes</button>
+																	<button class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">No</button>
+																</div>
+
+															</div>
+														</form>
+
 													</div>
 												</div>
 											</div>
@@ -230,7 +276,7 @@
 <div class="modal fade" id="myModalAddProduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document" style="width:50%">
 		<div class="modal-content">
-			
+
 			<form method="post" action="?view=produk-action" enctype="multipart/form-data">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -239,45 +285,45 @@
 
 
 				<div class="modal-body">
-				
+
 					<input type="hidden" id="txt_iduser" name="txt_iduser" value="<?PHP echo $data_seluser['id_user'];?>">
-					
+
 					<?PHP
 						$qu_cekjumproduk = "SELECT * FROM produk";
 						$sql_cekjumproduk= mysqli_query($conn, $qu_cekjumproduk);
-						
+
 						$jumproduk = mysqli_num_rows($sql_cekjumproduk);
 						$idpro_new = "DA-".($jumproduk + 1);
 					?>
-				
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">ID Product</label>
 							<input type="text" class="form-control" id="txt_idpro" name="txt_idpro" value="<?PHP echo $idpro_new;?>" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Nama Product</label>
 							<input type="text" class="form-control" id="txt_namapro" name="txt_namapro" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Harga Beli (Rp.)</label>
 							<input type="number" class="form-control" id="txt_hargabeli" name="txt_hargabeli" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Harga Jual (Rp.)</label>
 							<input type="number" class="form-control" id="txt_hargajual" name="txt_hargajual" >
 						</div>
 					</div>
-					
+
 					<?PHP
 						$qu_selcabang = "SELECT * FROM cabang WHERE statusdel='N'";
 						$sql_selcabang=mysqli_query($conn, $qu_selcabang);
@@ -292,12 +338,12 @@
 					<?PHP
 						}
 					?>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Kategori</label>
 							<select class="form-control js-example-responsive" id="cb_kategori" name="cb_kategori">
-								<?PHP 
+								<?PHP
 									$qu_selkate = "SELECT * FROM produk_kategori WHERE statusdel='N'";
 									$sql_selkate= mysqli_query($conn, $qu_selkate);
 									while($data_selkate=mysqli_fetch_array($sql_selkate)){
@@ -309,35 +355,35 @@
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Picture</label>
 						</div>
 						<input type="file"  id="inp_picture" name="inp_picture" >
 					</div>
-					
+
 					<div class="col-md-12">
 						<div class="form-group label-floating">
 							<label class="control-label">Keterangan</label>
 							<input type="text" class="form-control" id="txt_keterangan" name="txt_keterangan" >
 						</div>
 					</div>
-					
-					
-				
+
+
+
 				</div>
 
 				<div class="modal-footer" style="padding:30px;">
-					
+
 					<div class="col-md-12">
 						<button name="btn_save" id="btn_save" class="btn btn-success" style="zoom:85%" >Save</button>
 						<button class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">Cancel</button>
 					</div>
-					
+
 				</div>
 			</form>
-			
+
 		</div>
 	</div>
 </div>
@@ -347,3 +393,63 @@
 <script>
 	$('#tbl_dataproduk').dataTable();
 </script>
+
+<?php
+	if (!empty($get_msg)){
+?>
+		<script>
+			$(document).ready(function() {
+				document.getElementById("btn_msg").click();
+			});
+		</script>
+<?PHP
+	}
+?>
+
+<a data-toggle="modal" data-target="#myModalMsg" name="btn_msg" id="btn_msg">Notifikasi</a>
+<!--Modal Notifikasi Message===================================================================================================================================-->
+<div class="modal fade" id="myModalMsg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document" style="width:50%">
+		<div class="modal-content">
+
+			<form method="post" action="?view=produk-action" enctype="multipart/form-data">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><font size="3px">Notifikasi</font></h4>
+				</div>
+
+
+				<div class="modal-body">
+
+					<?php
+						if ($get_msg=="in-failed"){
+							$notifmsg = "Gagal Insert Produk, silakan periksa kembali jaringan yang anda gunakan!!!";
+						} else if ($get_msg=="in-success"){
+							$notifmsg = "Data Produk berhasil ditambahkan ke database!!!";
+						} else if ($get_msg=="up-failed"){
+							$notifmsg = "Gagal Update Produk, silakan periksa kembali jaringan yang anda gunakan!!!";
+						} else if ($get_msg=="up-success"){
+							$notifmsg = "Data Produk berhasil diupdate!!!";
+						} else if ($get_msg=="del-failed"){
+							$notifmsg = "Gagal Delete Produk, silakan periksa kembali jaringan yang anda gunakan!!!";
+						} else if ($get_msg=="del-success"){
+							$notifmsg = "Data Produk berhasil dihapus!!!";
+						}
+					?>
+
+					<p align="center"><font size="5px"><?PHP echo $notifmsg;?></font></p>
+
+				</div>
+
+				<div class="modal-footer" style="padding:30px;">
+
+					<div class="col-md-12">
+						<button class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">Oke</button>
+					</div>
+
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>

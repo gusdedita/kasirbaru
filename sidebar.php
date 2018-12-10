@@ -32,19 +32,19 @@
 
 					<li <?PHP if ($getview=="supervisi-data-masalah"){echo "class='active'";}?>>
                         <a href="?view=produk-data">
-                            <p><i class="fas fa-sales"></i> Product</p>
+                            <p><i class="fas fa-sun"></i> Product</p>
                         </a>
                     </li>
 
                     <li <?PHP if ($getview=="user-data"){echo "class='active'";}?>>
                         <a href="">
-							<p><i class="fas fa-report"></i> Report</p>
+							<p><i class="fas fa-file-invoice-dollar"></i> Report</p>
                         </a>
                     </li>
 
 					<li <?PHP if ($getview=="user-data"){echo "class='active'";}?>>
                         <a href="">
-                            <p><i class="fas fa-tool"></i> Setting</p>
+                            <p><i class="fas fa-wrench"></i> Setting</p>
                         </a>
                     </li>
 
@@ -53,7 +53,7 @@
                     <li class="active-pro">
                         <a href="index.php">
                             <!--<i class="material-icons">unarchive</i>-->
-                            <p><font size="1px">© 2018 Develop By : Gusdita<font></p>
+                            <p><font size="1px">© 2018 Develop By GrandLab Industries<font></p>
                         </a>
                     </li>
 

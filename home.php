@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-		
+
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="blue">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-			
+
 			<div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="red">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-			
+
 			<div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
 					<div class="card-header" data-background-color="purple">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-			
+
 			<div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="card card-stats">
                     <div class="card-header" data-background-color="orange">
@@ -67,10 +67,10 @@
                     </div>
                 </div>
             </div>
-			
-			
-        
+
+
+
 		</div>
-		
+
     </div>
 </div>

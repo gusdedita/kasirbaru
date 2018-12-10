@@ -111,10 +111,7 @@
 		<footer class="footer">
 			<div class="container">
 				<div class="copyright float-right">&copy;
-					<script>
-						document.write(new Date().getFullYear())
-					</script>, made with <i class="material-icons">favorite</i> by
-					<a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> RSUD Kab. Klungkung
+					<a href="https://www.griyaandakasa.com" target="_blank">Develop By</a> GrandLab Industries
 				</div>
 			</div>
 		</footer>

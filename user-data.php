@@ -67,7 +67,7 @@
 											<div class="modal fade" id="myModalEditUser<?PHP echo $no_seluser;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 												<div class="modal-dialog" role="document" style="width:50%">
 													<div class="modal-content">
-														
+
 														<form method="post" action="?view=user-action" enctype="multipart/form-data">
 															<div class="modal-header">
 																<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -76,44 +76,44 @@
 
 
 															<div class="modal-body">
-																
+
 																<input type="hidden" id="txt_iduser" name="txt_iduser" value="<?PHP echo $data_seluser['id_user'];?>">
-																
+
 																<div class="col-md-12">
 																	<div class="form-group label-floating">
 																		<label class="control-label">Nama</label>
 																		<input type="text" class="form-control" id="txt_nama" name="txt_nama" value="<?PHP echo $data_seluser['nama'];?>">
 																	</div>
 																</div>
-																
+
 																<div class="col-md-6">
 																	<div class="form-group label-floating">
 																		<label class="control-label">Username</label>
 																		<input type="text" class="form-control" id="txt_username" name="txt_username" value="<?PHP echo $data_seluser['username'];?>">
 																	</div>
 																</div>
-																
+
 																<div class="col-md-6">
 																	<div class="form-group label-floating">
 																		<label class="control-label">Password</label>
 																		<input type="text" class="form-control" id="txt_password" name="txt_password" value="<?PHP echo $data_seluser['password'];?>">
 																	</div>
 																</div>
-																
+
 																<div class="col-md-6">
 																	<div class="form-group label-floating">
 																		<label class="control-label">No. Handphone</label>
 																		<input type="text" class="form-control" id="txt_nohp" name="txt_nohp" value="<?PHP echo $data_seluser['nohp']?>">
 																	</div>
 																</div>
-																
+
 																<div class="col-md-6">
 																	<div class="form-group label-floating">
 																		<label class="control-label">E-Mail</label>
 																		<input type="text" class="form-control" id="txt_email" name="txt_email" value="<?PHP echo $data_seluser['email'];?>">
 																	</div>
 																</div>
-																
+
 																<div class="col-md-6">
 																	<div class="form-group label-floating">
 																		<label class="control-label">Otoritas</label>
@@ -123,26 +123,26 @@
 																		</select>
 																	</div>
 																</div>
-																
+
 																<div class="col-md-6">
 																	<div class="form-group label-floating">
 																		<label class="control-label">Picture</label>
 																	</div>
 																	<input type="file"  id="inp_picture" name="inp_picture" >
 																</div>
-															
+
 															</div>
 
 															<div class="modal-footer" style="padding:30px;">
-																
+
 																<div class="col-md-12">
 																	<button name="btn_update" id="btn_update" class="btn btn-success" style="zoom:85%" >Update</button>
 																	<button class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">Cancel</button>
 																</div>
-																
+
 															</div>
 														</form>
-														
+
 													</div>
 												</div>
 											</div>
@@ -174,7 +174,7 @@
 <div class="modal fade" id="myModalnewuser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document" style="width:50%">
 		<div class="modal-content">
-			
+
 			<form method="post" action="?view=user-action" enctype="multipart/form-data">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -183,42 +183,42 @@
 
 
 				<div class="modal-body">
-				
+
 					<div class="col-md-12">
 						<div class="form-group label-floating">
 							<label class="control-label">Nama</label>
 							<input type="text" class="form-control" id="txt_nama" name="txt_nama" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Username</label>
 							<input type="text" class="form-control" id="txt_username" name="txt_username" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Password</label>
 							<input type="text" class="form-control" id="txt_password" name="txt_password" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">No. Handphone</label>
 							<input type="text" class="form-control" id="txt_nohp" name="txt_nohp" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">E-Mail</label>
 							<input type="text" class="form-control" id="txt_email" name="txt_email" >
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Otoritas</label>
@@ -228,26 +228,26 @@
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<div class="form-group label-floating">
 							<label class="control-label">Picture</label>
 						</div>
 						<input type="file"  id="inp_picture" name="inp_picture" >
 					</div>
-				
+
 				</div>
 
 				<div class="modal-footer" style="padding:30px;">
-					
+
 					<div class="col-md-12">
 						<button name="btn_save" id="btn_save" class="btn btn-success" style="zoom:85%" >Save</button>
 						<button class="btn btn-warning" style="zoom:85%" data-dismiss="modal" aria-label="Close">Cancel</button>
 					</div>
-					
+
 				</div>
 			</form>
-			
+
 		</div>
 	</div>
 </div>
