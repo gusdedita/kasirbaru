@@ -20,31 +20,31 @@
 
                     <li <?PHP if ($getview=="home" || $getview==""){echo "class='active'";}?>>
                         <a href="index.php">
-                            <p><i class="fas fa-home"></i> Dashboard</p>
+                            <p><i class="fas fa-home" style="margin-right:10px"></i> Dashboard</p>
                         </a>
                     </li>
 
 					<li <?PHP if ($getview=="transaction" || $getview=="transaction-data"){echo "class='active'";}?>>
                         <a href="?view=transaction">
-                            <p> <i class="fas fa-dollar-sign"></i> Billing</p>
+                            <p> <i class="fas fa-dollar-sign" style="margin-right:10px"></i> Billing</p>
                         </a>
                     </li>
 
 					<li <?PHP if ($getview=="supervisi-data-masalah"){echo "class='active'";}?>>
                         <a href="?view=produk-data">
-                            <p><i class="fas fa-sun"></i> Product</p>
+                            <p><i class="fas fa-sun" style="margin-right:10px"></i> Product</p>
                         </a>
                     </li>
 
                     <li <?PHP if ($getview=="user-data"){echo "class='active'";}?>>
                         <a href="">
-							<p><i class="fas fa-file-invoice-dollar"></i> Report</p>
+							<p><i class="fas fa-file-invoice-dollar" style="margin-right:10px"></i> Report</p>
                         </a>
                     </li>
 
 					<li <?PHP if ($getview=="user-data"){echo "class='active'";}?>>
                         <a href="">
-                            <p><i class="fas fa-wrench"></i> Setting</p>
+                            <p><i class="fas fa-wrench" style="margin-right:10px"></i> Setting</p>
                         </a>
                     </li>
 
