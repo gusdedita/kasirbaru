@@ -36,8 +36,8 @@
                         </a>
                     </li>
 
-                    <li <?PHP if ($getview=="user-data"){echo "class='active'";}?>>
-                        <a href="">
+                    <li <?PHP if ($getview=="report-kasir"){echo "class='active'";}?>>
+                        <a href="?view=report-kasir">
 							<p><i class="fas fa-file-invoice-dollar" style="margin-right:10px"></i> Report</p>
                         </a>
                     </li>

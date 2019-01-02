@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            (Deskripsi)
+                            Mengelola transaksi penjualan produk
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            (Deskripsi)
+                            Mengelola data produk, update stok, update harga, dll
                         </div>
                     </div>
                 </div>
@@ -42,11 +42,11 @@
                         <i class="material-icons">person</i>
                     </div>
                     <div class="card-content">
-                        <a href="?view=" class="btn btn-primary">Report</a>
+                        <a href="?view=report-kasir" class="btn btn-primary">Report</a>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            (Deskripsi)
+                            Closing harian kasir, dan pembuatan laporan.
                         </div>
                     </div>
                 </div>

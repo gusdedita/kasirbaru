@@ -17,6 +17,7 @@
 	elseif($view == "produk-action") 					include("produk-action.php");
 	
 	elseif($view == "report-kasir") 					include("report-kasir.php");
+	elseif($view == "report-kasir-action") 				include("report-kasir-action.php");
 
 
 	else echo"No Content";
